@@ -13,6 +13,8 @@ class TestFirstPatternLeftOperand(unittest.TestCase):
         captcha = Captcha(2,2,2,2)
         self.assertEqual(captcha.left_operand(), '2')
 
+class TestSecondPatternLeftOperand(unittest.TestCase):
+
 class Captcha:
     def __init__(self,pattern,left,operand,right):
         self.left = left 
