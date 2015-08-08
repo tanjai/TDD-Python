@@ -29,11 +29,31 @@ class TestSecondPatternLeftOperand(unittest.TestCase):
         captcha = Captcha(self.dummy_pattern,2,self.dummy_operand,self.dummy_right)
         self.assertEqual(captcha.left_operand(),'two')
 
+class TestFirstPatternRightOperand(unittest.TestCase):
+    dummy_pattern = 1
+    dummy_left = 1
+
+    def test_1_should_be_one(self):
+        captcha = Captcha(self.dummy_pattern,self.dummy_left,1,1)
+        self.assertEqual(self.captcha.right_operand(),"one")
+
+    def test_2_should_be_two(self):
+        captcha = Captcha(self.dummy_pattern,self.dummy_left,1,2)
+        self.assertEqual(captcha.right_operand(),"two")
+
+class TestSecondPatternRightOperand(unittest.TestCase):
+    def test_1_should_be_1(self):
+        captcha = Captcha(2,1,1,1)
+        self.assertEqual(captcha.right_operand(),"1")
+    def test_2_should_be_2(self):
+        captcha = Captcha(2,1,1,2)
+        self.assertEqual(captcha.right_operand(),"2")
 
 class Captcha:
     def __init__(self,pattern,left,operand,right):
         self.left = left 
         self.pattern = pattern
+        self.right = right
 
     def left_operand(self):
         words = ['one', 'two']
@@ -41,6 +61,13 @@ class Captcha:
             return str(self.left) 
         elif self.pattern == 2:
             return words[self.left-1]
+
+    def right_operand(self):
+        words = ['one','two']
+        if self.pattern == 2:
+            return str(self.right)
+        else :
+            return words[self.right-1] 
 
 
 
