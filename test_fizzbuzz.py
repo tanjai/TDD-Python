@@ -1,11 +1,14 @@
 import unittest
 class FizzBuzz():
 	def count(self, number):
-		if number == 3:
+		if self.isModuloBy3(number):
 			return 'fizz'
 		if number ==5:
 			return 'buzz'
 		return str(number)
+
+	def isModuloBy3(self, number):
+		return number % 3 == 0
 
 
 class TestFizzBuzz(unittest.TestCase):
@@ -23,3 +26,7 @@ class TestFizzBuzz(unittest.TestCase):
 
 	def test_it_should_return_buzz_when_number_is_5(self):
 		self.assertEqual('buzz',self.fizzbuzz.count(5))
+
+	def test_it_should_return_fizz_when_number_is_6(self):
+		self.assertEqual('fizz',self.fizzbuzz.count(6))
+
