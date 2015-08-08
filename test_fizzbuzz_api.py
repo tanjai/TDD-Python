@@ -14,3 +14,4 @@ class TestFizzBuzzAPI(unittest.TestCase):
 		self.assertEqual('fizz', response.data)
 
 
+
