@@ -3,9 +3,9 @@ class FizzBuzz():
 	def count(self, number):
 		if self.isModuloBy3(number) and self.isModuloBy5(number):
 			return 'fizzbuzz'
-		if self.isModuloBy3(number):
+		elif self.isModuloBy3(number):
 			return 'fizz'
-		if self.isModuloBy5(number):
+		elif self.isModuloBy5(number):
 			return 'buzz'
 		return str(number)
 
