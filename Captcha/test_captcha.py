@@ -1,3 +1,9 @@
+import unittest
+from captcha import Captcha
+from captcha import Operator
+from captcha import StringOperand
+from captcha import NumberOperand
+
 class TestCaptchaFirstPatternLeftOperand(unittest.TestCase):
     firstPattern = 1
     dummyOperator = 1
