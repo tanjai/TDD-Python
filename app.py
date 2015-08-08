@@ -1,5 +1,5 @@
 from flask import Flask 
-from test_fizzbuzz import FizzBuzz
+from fizzbuzz import FizzBuzz
 
 app = Flask(__name__)
 
@@ -14,4 +14,5 @@ def fizzbuzz(number):
 
 
 if __name__ == '__main__':
+	app.debug = True
 	app.run()
