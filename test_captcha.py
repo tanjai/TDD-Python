@@ -35,7 +35,7 @@ class TestFirstPatternRightOperand(unittest.TestCase):
 
     def test_1_should_be_one(self):
         captcha = Captcha(self.dummy_pattern,self.dummy_left,1,1)
-        self.assertEqual(self.captcha.right_operand(),"one")
+        self.assertEqual(captcha.right_operand(),"one")
 
     def test_2_should_be_two(self):
         captcha = Captcha(self.dummy_pattern,self.dummy_left,1,2)
