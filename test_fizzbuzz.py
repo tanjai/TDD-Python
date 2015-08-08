@@ -1,11 +1,11 @@
 import unittest
 class FizzBuzz():
 	def count(self, number):
-		if number == 1:
-			return '1'
-		elif number == 3:
+		if number == 3:
 			return 'fizz'
-		return '2'
+		if number ==5:
+			return 'buzz'
+		return str(number)
 
 
 class TestFizzBuzz(unittest.TestCase):
@@ -20,3 +20,6 @@ class TestFizzBuzz(unittest.TestCase):
 
 	def test_it_should_return_fizz_when_number_is_3(self):
 		self.assertEqual('fizz',self.fizzbuzz.count(3))
+
+	def test_it_should_return_buzz_when_number_is_5(self):
+		self.assertEqual('buzz',self.fizzbuzz.count(5))
