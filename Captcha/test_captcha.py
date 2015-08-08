@@ -1,119 +1,101 @@
-import unittest
-from app import app
-
-#class TestCaptcha(unittest.TestCase):
-#   def test_fail(self):
-#       self.assertEqual(True,False)
-
-class TestFirstPatternLeftOperand(unittest.TestCase):
-    dummy_operand = 1
-    dummy_right = 1
-    dummy_pattern = 1 
+class TestCaptchaFirstPatternLeftOperand(unittest.TestCase):
+    firstPattern = 1
+    dummyOperator = 1
+    dummyRightOperand = 1
 
     def test_1_should_be_1(self):
-        captcha = Captcha(self.dummy_pattern,1,self.dummy_operand,self.dummy_right)
-        self.assertEqual(captcha.left_operand(), '1')
+        captcha = Captcha(self.firstPattern, 1, self.dummyOperator, self.dummyRightOperand)
+        self.assertEqual('1', captcha.leftOperand.toString())
+
     def test_2_should_be_2(self):
-        captcha = Captcha(self.dummy_pattern,2,self.dummy_operand,self.dummy_right)
-        self.assertEqual(captcha.left_operand(), '2')
+        captcha = Captcha(self.firstPattern, 2, self.dummyOperator, self.dummyRightOperand)
+        self.assertEqual('2', captcha.leftOperand.toString())
 
-class TestSecondPatternLeftOperand(unittest.TestCase):
-    dummy_pattern = 2
-    dummy_operand = 1
-    dummy_right = 1
-
-    def test_1_should_be_one(self):
-        captcha = Captcha(self.dummy_pattern,1,self.dummy_operand,self.dummy_right)
-        self.assertEqual(captcha.left_operand(), 'one')
-    def test_2_should_be_two(self):
-        captcha = Captcha(self.dummy_pattern,2,self.dummy_operand,self.dummy_right)
-        self.assertEqual(captcha.left_operand(),'two')
-
-class TestFirstPatternRightOperand(unittest.TestCase):
-    dummy_pattern = 1
-    dummy_left = 1
-    dummy_operand = 1
+class TestCaptchaSecondPatternLeftOperand(unittest.TestCase):
+    secondPattern = 2
+    dummyOperator = 1
+    dummyRightOperand = 1
 
     def test_1_should_be_one(self):
-        captcha = Captcha(self.dummy_pattern,self.dummy_left,self.dummy_operand,1)
-        self.assertEqual(captcha.right_operand(),"one")
+        captcha = Captcha(self.secondPattern, 1, self.dummyOperator, self.dummyRightOperand)
+        self.assertEqual('one', captcha.leftOperand.toString())
 
     def test_2_should_be_two(self):
-        captcha = Captcha(self.dummy_pattern,self.dummy_left,self.dummy_operand,2)
-        self.assertEqual(captcha.right_operand(),"two")
+        captcha = Captcha(self.secondPattern, 2, self.dummyOperator, self.dummyRightOperand)
+        self.assertEqual('two', captcha.leftOperand.toString())
 
-class TestSecondPatternRightOperand(unittest.TestCase):
-    dummy_pattern = 2
-    dummy_left = 1
-    dummy_operand = 1
+    def test_3_should_be_three(self):
+        captcha = Captcha(self.secondPattern, 3, self.dummyOperator, self.dummyRightOperand)
+        self.assertEqual('three', captcha.leftOperand.toString())
+
+    def test_4_should_be_three(self):
+        captcha = Captcha(self.secondPattern, 4, self.dummyOperator, self.dummyRightOperand)
+        self.assertEqual('four', captcha.leftOperand.toString())
+
+class TestCaptchaFirstPatternRightOperand(unittest.TestCase):
+    secondPattern = 2
+    dummyOperator = 1
+    dummyLeftOperand = 1
 
     def test_1_should_be_1(self):
-        captcha = Captcha(self.dummy_pattern,self.dummy_left,self.dummy_operand,1)
-        self.assertEqual(captcha.right_operand(),"1")
-    def test_2_should_be_2(self):
-        captcha = Captcha(self.dummy_pattern,self.dummy_left,self.dummy_operand,2)
-        self.assertEqual(captcha.right_operand(),"2")
+        captcha = Captcha(self.secondPattern, self.dummyLeftOperand, self.dummyOperator, 1)
+        self.assertEqual('1', captcha.rightOperand.toString())
 
-# class TestOperand(unittest.TestCase):
-#     def test_1_sould_be_1(self):
-#         operand = Operand(1)
-#         self.assertEqual(operand.tostring(),'1')
-#     def test_2_should_be_2(self):
-#         operand =  Operand(2)
-#         self.assertEqual(operand.tostring(),'2')
+    def test_2_should_be_2(self):
+        captcha = Captcha(self.secondPattern, self.dummyLeftOperand, self.dummyOperator, 2)
+        self.assertEqual('2', captcha.rightOperand.toString())
+
+
+class TestCaptchaFirstPatternRightOperand(unittest.TestCase):
+    secondPattern = 1
+    dummyOperator = 1
+    dummyLeftOperand = 1
+
+    def test_1_should_be_one(self):
+        captcha = Captcha(self.secondPattern, self.dummyLeftOperand, self.dummyOperator, 1)
+        self.assertEqual('one', captcha.rightOperand.toString())
+
+    def test_2_should_be_two(self):
+        captcha = Captcha(self.secondPattern, self.dummyLeftOperand, self.dummyOperator, 2)
+        self.assertEqual('two', captcha.rightOperand.toString())
+
+
+class TestCaptchaOperator(unittest.TestCase):
+    dummyPattern = 1
+    dummyLeftOperand = 1
+    dummyRightOperand = 1
+
+    def test_1_should_be_plus(self):
+        captcha = Captcha(self.dummyPattern, self.dummyLeftOperand, 1, self.dummyRightOperand)
+        self.assertEqual('+', captcha.operator.toString())
+
+    def test_2_should_be_multiply(self):
+        captcha = Captcha(self.dummyPattern, self.dummyLeftOperand, 2, self.dummyRightOperand)
+        self.assertEqual('*', captcha.operator.toString())
+
+    def test_3_should_be_minus(self):
+        captcha = Captcha(self.dummyPattern, self.dummyLeftOperand, 3, self.dummyRightOperand)
+        self.assertEqual('-', captcha.operator.toString())
+
+class TestOperator(unittest.TestCase):
+    def test_1_should_be_plus(self):
+        operator = Operator(1)
+        self.assertEqual('+', operator.toString())
+
+    def test_2_should_be_multiply(self):
+        operator = Operator(2)
+        self.assertEqual('*', operator.toString())
+
+    def test_3_should_be_multiply(self):
+        operator = Operator(3)
+        self.assertEqual('-', operator.toString())
 
 class TestStringOperand(unittest.TestCase):
     def test_1_should_be_one(self):
-        stringoperand = StringOperand(1)
-        self.assertEqual(stringoperand.tostring(),'one')
-    def test_2_should_be_two(self):
-        stringoperand = StringOperand(2)
-        self.assertEqual(stringoperand.tostring(),'two')
+        operand = StringOperand(1)
+        self.assertEqual('one', operand.toString())
 
-class TestintegerOperand(unittest.TestCase):
+class TestNumberOperand(unittest.TestCase):
     def test_1_should_be_1(self):
-        integeroperand = IntegerOperand(1)
-        self.assertEqual(integeroperand.tostring(),'1')
-
-class Captcha:
-    def __init__(self,pattern,left,operator,right):
-        # self.pattern = pattern
-        if pattern == 1:
-            self.left = IntegerOperand(left)
-            self.right =StringOperand(right)
-        elif pattern == 2:
-            self.left = StringOperand(left)
-            self.right = IntegerOperand(right)
-        
-  
-        self.operator = Operand(operator)
-
-    def left_operand(self):
-        return self.left.tostring()
-
-    def right_operand(self):
-        return self.right.tostring()
-
-    def operator(self):
-        if self.operator == 1:
-            return str(self.operator)
-
-class Operand:
-    def __init__(self ,operand):
-        self.operand = operand
-    def tostring(self):
-        return str(self.operand)
-
-class StringOperand(Operand):
-    def __init__(self,operand):
-        words = ['one', 'two']
-        self.operand = words[operand-1]
-class IntegerOperand(Operand):
-    def __init__(self,operand):
-        self.operand = operand
-
-
-
-
-
-
+        operand = NumberOperand(1)
+        self.assertEqual('1', operand.toString())
