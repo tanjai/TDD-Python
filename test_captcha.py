@@ -45,12 +45,13 @@ class TestFirstPatternRightOperand(unittest.TestCase):
 class TestSecondPatternRightOperand(unittest.TestCase):
     dummy_pattern = 2
     dummy_left = 1
+    dummy_operand = 1
 
     def test_1_should_be_1(self):
-        captcha = Captcha(self.dummy_pattern,self.dummy_left,1,1)
+        captcha = Captcha(self.dummy_pattern,self.dummy_left,self.dummy_operand,1)
         self.assertEqual(captcha.right_operand(),"1")
     def test_2_should_be_2(self):
-        captcha = Captcha(self.dummy_pattern,self.dummy_left,1,2)
+        captcha = Captcha(self.dummy_pattern,self.dummy_left,self.dummy_operand,2)
         self.assertEqual(captcha.right_operand(),"2")
 
 class Captcha:
