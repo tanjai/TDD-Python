@@ -8,7 +8,7 @@ from app import app
 class TestFirstPatternLeftOperand(unittest.TestCase):
     dummy_operand = 1
     dummy_right = 1
-    dummy_pattern = 1
+    dummy_pattern = 1 
 
     def test_1_should_be_1(self):
         captcha = Captcha(self.dummy_pattern,1,self.dummy_operand,self.dummy_right)
@@ -18,9 +18,13 @@ class TestFirstPatternLeftOperand(unittest.TestCase):
         self.assertEqual(captcha.left_operand(), '2')
 
 class TestSecondPatternLeftOperand(unittest.TestCase):
+
     def test_1_should_be_one(self):
         captcha = Captcha(2,1,1,1)
         self.assertEqual(captcha.left_operand(), 'one')
+    def test_2_should_be_two(self):
+        captcha = Captcha(2,2,1,1)
+        self.assertEqual(captcha.left_operand(),'two')
 
 
 class Captcha:
@@ -29,11 +33,11 @@ class Captcha:
         self.pattern = pattern
 
     def left_operand(self):
-    
+        words = ['one', 'two']
         if self.pattern == 1:
             return str(self.left) 
         elif self.pattern == 2:
-            return 'one'  
+            return words[self.left-1]
 
 
 
