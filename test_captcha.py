@@ -19,12 +19,13 @@ class TestFirstPatternLeftOperand(unittest.TestCase):
 
 class TestSecondPatternLeftOperand(unittest.TestCase):
     dummy_pattern = 2
+    dummy_operand = 1
 
     def test_1_should_be_one(self):
-        captcha = Captcha(self.dummy_pattern,1,1,1)
+        captcha = Captcha(self.dummy_pattern,1,self.dummy_operand,1)
         self.assertEqual(captcha.left_operand(), 'one')
     def test_2_should_be_two(self):
-        captcha = Captcha(self.dummy_pattern,2,1,1)
+        captcha = Captcha(self.dummy_pattern,2,self.dummy_operand,1)
         self.assertEqual(captcha.left_operand(),'two')
 
 
