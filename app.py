@@ -7,7 +7,7 @@ app = Flask(__name__)
 def hello():
 	return "Hello World"
 
-@app.route('/fizzbuzz/<number>')
+@app.route('/fizzbuzz/<int:number>')
 def fizzbuzz(number):
 	fizzbuzz = FizzBuzz()
 	return fizzbuzz.count(number)
